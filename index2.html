@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLOW: Flood Control, Lives & Accountability</title>
+<style>
+:root{
+  --navy:#071827; --navy2:#0d2638; --blue:#087ea4; --cyan:#25c7d9;
+  --white:#f4fbff; --muted:#b8ced9; --red:#ff5f56; --gold:#ffc857;
+  --card:rgba(14,39,55,.78); --line:rgba(101,210,225,.22);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#06131f,#0a2638 55%,#062f43);color:var(--white);line-height:1.65}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:42px 42px}
+nav{position:sticky;top:0;z-index:20;background:rgba(4,18,29,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;justify-content:center;gap:8px;padding:12px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;padding:8px 13px;border-radius:8px;font-size:.9rem}nav a:hover{background:#123b51;color:white}
+.hero{min-height:86vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:70px 20px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(37,199,217,.18),transparent 65%);top:-250px;right:-180px}
+.badge{display:inline-block;border:1px solid var(--line);padding:6px 13px;border-radius:99px;color:var(--cyan);font-weight:700;letter-spacing:2px;font-size:.75rem}
+h1{font-size:clamp(3rem,9vw,7rem);line-height:.9;margin:22px 0 16px;letter-spacing:-4px}
+.hero h1 span{color:var(--cyan)}.hero p{max-width:750px;margin:auto;color:var(--muted);font-size:1.12rem}
+.btn{display:inline-block;margin-top:25px;padding:13px 21px;background:var(--cyan);color:#03131c;text-decoration:none;border-radius:8px;font-weight:800;box-shadow:0 8px 30px rgba(37,199,217,.2)}
+section{max-width:1180px;margin:auto;padding:85px 20px}
+.kicker{color:var(--cyan);font-size:.8rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:2.5rem;margin:8px 0 15px}h3{margin-top:0}.lead{color:var(--muted);max-width:800px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}
+.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:25px;box-shadow:0 15px 40px rgba(0,0,0,.15)}
+.stat strong{display:block;font-size:2.1rem;color:var(--cyan)}.stat span{color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+.card{transition:.25s}.card:hover{transform:translateY(-4px);border-color:rgba(37,199,217,.5)}
+.num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:#04202b;font-weight:900;margin-bottom:14px}
+.card p,.card li{color:#c7d8df}.card ul{padding-left:20px}
+.quote{border-left:4px solid var(--gold);padding:15px 20px;margin:25px 0;background:rgba(255,200,87,.06);color:#e8edf0}
+.timeline{position:relative;margin-top:35px;padding-left:28px;border-left:2px solid var(--line)}
+.timeline article{margin:0 0 30px;position:relative}.timeline article:before{content:"";position:absolute;left:-36px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.timeline small{color:var(--cyan);font-weight:800}
+.sources a{display:block;color:#80e5ef;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line);word-break:break-word}.sources a:hover{color:white}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:25px}.person{padding:13px 16px;background:rgba(255,255,255,.035);border-radius:9px}.person b{display:block}.person span{color:var(--muted);font-size:.88rem}
+.cta{background:linear-gradient(120deg,#0a516b,#0a2c43);border:1px solid var(--line);border-radius:20px;padding:45px;text-align:center}
+footer{text-align:center;padding:40px 20px;color:#8eaab6;border-top:1px solid var(--line)}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.show{opacity:1;transform:none}
+@media(max-width:750px){.stats,.grid,.team{grid-template-columns:1fr}h1{letter-spacing:-2px}.hero{min-height:78vh}section{padding:60px 16px}.cta{padding:30px 20px}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#home">HOME</a><a href="#why">WHY IT MATTERS</a><a href="#facts">FACTS</a>
+<a href="#timeline">TIMELINE</a><a href="#sources">SOURCES</a><a href="#team">TEAM</a>
+</nav>
+
+<header class="hero" id="home">
+<div>
+<div class="badge">FLOOD CONTROL AWARENESS ADVOCACY</div>
+<h1>PROTECT.<br><span>VERIFY.</span><br>ACT.</h1>
+<p>Flood control is not only about concrete, canals, and budgets. It is about protecting Filipino lives, communities, livelihoods, and public trust.</p>
+<a class="btn" href="#why">Explore the advocacy ↓</a>
+</div>
+</header>
+
+<section id="why" class="reveal">
+<div class="kicker">The issue</div><h2>Why should we care?</h2>
+<p class="lead">Flooding can destroy homes, interrupt livelihoods, displace communities, and put lives at risk. Public funds for flood control are intended to reduce these risks. That makes transparency, proper construction, inspection, and accountability essential.</p>
+<div class="stats">
+<div class="stat"><strong>9,855</strong><span>flood-control projects funded between July 2022 and May 2025</span></div>
+<div class="stat"><strong>₱545B+</strong><span>reported value of those funded projects</span></div>
+<div class="stat"><strong>₱42.3B–₱118.5B</strong><span>estimated economic loss from anomalous flood-control projects, 2023–2025</span></div>
+</div>
+<div class="quote">“Our taxes should fund public service and infrastructure.”<br><small>Advocacy principle: public money should produce public protection.</small></div>
+</section>
+
+<section id="facts" class="reveal">
+<div class="kicker">Six key findings</div><h2>Follow the evidence.</h2>
+<div class="grid">
+<div class="card"><div class="num">01</div><h3>Thousands of projects, billions in funding</h3><p>Between July 2022 and May 2025, 9,855 flood-control projects worth more than ₱545 billion were funded. Advocacy matters because incomplete, substandard, or nonexistent projects can leave communities vulnerable while the public deserves transparency about where funds go.</p></div>
+<div class="card"><div class="num">02</div><h3>Ghost projects and accountability</h3><p>The DOJ identified 14 ghost projects and reported that work on arrest warrants was underway. When public funds are diverted to projects that do not exist, communities lose both the intended infrastructure and the economic value that the spending was supposed to create.</p></div>
+<div class="card"><div class="num">03</div><h3>Flooding still affects communities</h3><p>Reports from Central Luzon described flood-control measures as ineffective during severe flooding. The issue demonstrates why projects need to be properly designed, completed, maintained, and independently checked.</p><p>Flooding can cause property damage, disrupt livelihoods, displace families, and threaten lives. Flood risk is not simply something communities should be expected to endure.</p></div>
+<div class="card"><div class="num">04</div><h3>Inspection reveals missing projects</h3><p>Reports said around 30,000 projects had been proposed, while only about 10,000 had undergone professional inspection at a reported stage of the investigation. Among an initial 8,000 inspected, 421 were reported as ghost projects. A later report cited 673 ghost projects among 2,000 checked.</p><p>One reported estimate placed possible losses at about ₱180 billion.</p></div>
+<div class="card"><div class="num">05</div><h3>The cost goes beyond infrastructure</h3><p>Finance Secretary Ralph Recto, citing Department of Finance data, said anomalous flood-control projects may have cost the Philippine economy an estimated ₱42.3 billion to ₱118.5 billion from 2023 to 2025. The reported equivalent was approximately 95,000 to 266,000 potential jobs.</p></div>
+<div class="card"><div class="num">06</div><h3>Awareness is a public responsibility</h3><p>Reported estimates of economic losses show that corruption and weak project oversight can affect services and quality of life. Farmers, workers, indigenous communities, and other vulnerable groups can be affected when public resources do not deliver their intended benefits.</p><p>Citizens have a legitimate interest in knowing how public money is spent and whether promised public services are delivered.</p></div>
+</div>
+</section>
+
+<section id="timeline" class="reveal">
+<div class="kicker">A developing issue</div><h2>From funding to accountability</h2>
+<div class="timeline">
+<article><small>JUL 2022 – MAY 2025</small><h3>9,855 projects funded</h3><p>Reported flood-control funding exceeded ₱545 billion across thousands of projects.</p></article>
+<article><small>INVESTIGATIONS</small><h3>Ghost projects identified</h3><p>Government inspections and investigations reported projects that could not be verified as existing or completed as described.</p></article>
+<article><small>2023 – 2025</small><h3>Economic losses estimated</h3><p>DOF figures cited by Finance Secretary Ralph Recto put estimated economic losses from anomalous projects at ₱42.3 billion–₱118.5 billion.</p></article>
+<article><small>2025–2026 REPORTS</small><h3>More inspections and scrutiny</h3><p>Subsequent reports described additional inspections, technology-assisted verification, and continued scrutiny of flood-control spending.</p></article>
+</div>
+</section>
+
+<section class="reveal">
+<div class="kicker">What advocacy can demand</div><h2>Build trust through transparency.</h2>
+<div class="grid">
+<div class="card"><h3>🔎 Verify</h3><p>Projects should be documented, inspected, and verifiably completed before the public considers them successful.</p></div>
+<div class="card"><h3>📊 Disclose</h3><p>Citizens should be able to understand where flood-control budgets go, what was built, and how projects performed.</p></div>
+<div class="card"><h3>🏗️ Build properly</h3><p>Infrastructure must be designed, constructed, and maintained to serve the communities it was funded to protect.</p></div>
+<div class="card"><h3>⚖️ Demand accountability</h3><p>Allegations and findings should be investigated through proper legal and institutional processes, with responsibility established through evidence.</p></div>
+</div>
+</section>
+
+<section id="sources" class="reveal">
+<div class="kicker">Research links</div><h2>Sources & further reading</h2>
+<p class="lead">Open the original reports below to review the evidence behind the advocacy.</p>
+<div class="card sources">
+<a href="https://pcij.org/2025/08/31/5-reveals-from-the-flood-control-data/" target="_blank">Philippine Center for Investigative Journalism — 5 reveals from the flood-control data</a>
+<a href="https://www.pna.gov.ph/articles/1267277" target="_blank">Philippine News Agency — DOJ / ghost projects report</a>
+<a href="https://newsinfo.inquirer.net/2296148/flood-control-projects-fail-central-luzon-folk/amp" target="_blank">Inquirer — Flood-control projects fail Central Luzon folk</a>
+<a href="https://www.philstar.com/headlines/2026/08/23/2551203/senate-scrutinize-p107-billion-flood-control-budget/amp" target="_blank">Philstar — Senate scrutiny of proposed ₱107.4B flood-control budget</a>
+<a href="https://asianews.network/over-us3-billion-likely-lost-to-ghost-flood-control-projects-in-the-philippines/" target="_blank">Asia News Network — Possible losses linked to ghost flood-control projects</a>
+<a href="https://www.philstar.com/pang-masa/police-metro/2025/12/04/2491829/p180-bilyong-posibleng-napunta-sa-mga-ghost-flood-control-projects-lacson" target="_blank">Philstar — Report on possible ₱180B linked to ghost projects</a>
+<a href="https://bworldonline.com/top-stories/2025/11/17/712461/philippines-now-turns-to-technology-after-flood-control-projects-vanish/" target="_blank">BusinessWorld — Technology used to verify flood-control projects</a>
+<a href="https://tribune.net.ph/2026/02/11/timeline-flood-control-scandal" target="_blank">Daily Tribune — Timeline of the flood-control scandal</a>
+<a href="https://www.pna.gov.ph/articles/1257809" target="_blank">Philippine News Agency — Recto on economic losses from ghost projects</a>
+<a href="https://wealthinsights.metrobank.com.ph/bworldonline/economic-losses-from-anomalous-flood-control-projects-likely-hit-up-to-p119-billion-recto-says" target="_blank">Metrobank Wealth Insights — Economic losses from anomalous flood-control projects</a>
+</div>
+</section>
+
+<section id="team" class="reveal">
+<div class="kicker">Project team</div><h2>People behind the advocacy</h2>
+<div class="team">
+<div class="person"><b>Guanzon, Aaron John T.</b><span>Editor · Poster Creator</span></div>
+<div class="person"><b>Gregorio, Marinelle M.</b><span>Editor · Poster Creator</span></div>
+<div class="person"><b>Villaranda, Zhian Clark</b><span>Researcher</span></div>
+<div class="person"><b>Tayag, Justin Kyro</b><span>Researcher</span></div>
+<div class="person"><b>Marquez, Lorenzo Gabriel</b><span>Researcher · Caption Creator</span></div>
+<div class="person"><b>Arroyo, Kyle Christine</b><span>Researcher</span></div>
+<div class="person"><b>Reyes, Ron Jefferson</b><span>Researcher</span></div>
+<div class="person"><b>Mangubat, Ysabella Venice</b><span>Researcher</span></div>
+<div class="person"><b>Jamin, Jared Alexander</b><span>Researcher</span></div>
+<div class="person"><b>Dolatre, Don Gabriel</b><span>Researcher</span></div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="cta"><div class="kicker">Our message</div><h2>Flood control is public protection.</h2><p>Ask where the money went. Ask what was built. Ask whether it works. Demand evidence, transparency, and accountability through lawful civic action.</p><a class="btn" href="#sources">Read the sources</a></div>
+</section>
+
+<footer>FLOOD CONTROL AWARENESS • Research-based student advocacy project • 2026</footer>
+
+<script>
+const items=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+items.forEach(i=>observer.observe(i));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+ a.addEventListener('click',e=>{
+  const target=document.querySelector(a.getAttribute('href'));
+  if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'})}
+ })
+});
+</script>
+</body>
+</html>
